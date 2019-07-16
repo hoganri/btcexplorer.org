@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Richard Hogan">
+    <title>btcexplorer | Block Explorer | View Blockchain Data</title>
+    <link rel="canonical" href="https://www.btcexplorer.org">
+	<link href="../css/bootstrap.css" rel="stylesheet">
+	<style>
+	.form-group{
+		width:100%;
+		max-width:500px;
+		margin:auto;
+		margin-top:30px;
+		text-align:center;
+	}
+	.form-control{
+		text-align:center;
+		max-width:300px;
+	}
+	.alert{
+		margin:auto;
+		margin-top:15px;
+		margin-bottom:15px;
+		max-width:900px;
+	}
+	.table{
+		max-width:900px;
+		margin:auto;
+	}
+	#randomBlocks, #searchBlocks{
+		margin-top:10px;
+		width:135px;
+	}
+	#errorRow, #results{
+		display:none;
+	}
+	td{
+		word-wrap:anywhere;
+	}
+	#hash, #root{
+		word-break:break-all;
+	}
+	@media screen and (max-width:900px){
+		.alert{
+			max-width: 95%;
+			margin:auto;
+			margin-top:15px;
+			margin-bottom:15px;
+		}
+		
+	}
+	@media screen and (max-width:600px){
+		form .btn{
+			
+		}
+	}
+	</style>
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h3 class="my-0 mr-md-auto font-weight-normal"><a href="http://www.btcexplorer.org">btcexplorer.org</a></h3>
+  	  <nav class="my-2 my-md-0 mr-md-3">
+  		  <a class="p-2 text-dark" href="../index.html">View Blocks</a>
+  	  </nav>
+  	  <a class="btn btn-outline-primary" href="./index.html">Search</a>
+    </div>
+    <div class="container">
+          <noscript>This site runs entirely on JavaScript, you'll need to enable it for the site to work.</noscript>
+		  <div class="form-group">
+			  <form onsubmit="return false;">
+			      <label for="blockHeight"><h4>Enter a block height</h4></label>
+			      <input class="form-control input-lg" style="max-width:280px;margin:auto;" id="blockHeight" placeholder="584948" type="number" required=""> <button class="btn btn-primary" id="searchBlocks">Search</button> <button class="btn btn-info" id="randomBlocks">Random Block</button>
+			  </form>
+		  </div>
+	</div>
+	<div class="container">
+		<div class="row alert alert-danger" id="errorRow"><strong>Error!</strong>&nbsp; We couldn't find data for that block height.</div>
+	  	<div class="row" id="results">
+			<div class="row alert alert-success" id="successRow"><strong>Success!</strong>&nbsp; Block data is below.</div>
+	  		<table class="table">
+	  			<thead>
+	  				<tr>
+	  					<td style='font-weight:600;'>Time</th>
+						<td id="time"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Height</th>
+						<td id="height"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Confirmations</th>
+						<td id="confirmations"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Size</th>
+						<td id="size"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Stripped Size</th>
+						<td id="stripped_size"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Weight</th>
+						<td id="weight"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Transaction Count</th>
+						<td id="tx_count"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Reward Fees</th>
+						<td id="reward_fees"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Bits</th>
+						<td id="bits"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Nonce</th>
+						<td id="nonce"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Version</th>
+						<td id="version"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Mined By</th>
+						<td id="minedBy"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Hash</th>
+						<td id="hash"></td>
+	  				</tr>
+	  				<tr>
+	  					<td style='font-weight:600;'>Merkle Root</th>
+						<td id="root"></td>
+	  				</tr>
+	  			</thead>
+	  		</table>
+	    </div>
+	    <div class="row" style="margin-top:50px;">
+	  	  <p>
+	  		  This website uses the <a href="https://btc.com/api-doc">BTC.com API</a> and <a href="https://www.chartjs.org/">Chart.js</a>
+	  		  <br/>
+	  		  <a href="https://www.github.com/hoganri/btcexplorer.org">View on GitHub</a>
+	  	  </p>
+	    </div>
+	</div>
+    <br/>
+	<script src="js/search.js"></script>
+</body>
+</html>
