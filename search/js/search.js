@@ -45,8 +45,7 @@ function displayBlock(data){
 	document.getElementById('size').innerText=data['size'];
 	document.getElementById('stripped_size').innerText=data['stripped_size'];
 	document.getElementById('weight').innerText=data['weight'];
-	document.getElementById('tx_count').innerText=data['confirmations'];
-	document.getElementById('confirmations').innerText=data['tx_count'];
+	document.getElementById('tx_count').innerText=data['tx_count'];
 	var total_reward = (data['reward_block']+data['reward_fees'])/100000000;
 	document.getElementById('reward_fees').innerText=total_reward;
 	document.getElementById('bits').innerText=data['bits'];
